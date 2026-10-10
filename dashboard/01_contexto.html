@@ -1,0 +1,804 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pestaña 1 · Contexto del problema &#8212; Entregable 2 · Bank Marketing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Haz clic para mostrar';</script>
+    <script>let toggleHintHide = 'Haz clic para ocultar';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'dashboard/01_contexto';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Pestaña 2 · EDA (exploración de datos)" href="02_eda.html" />
+    <link rel="prev" title="Entregable 2 · Dashboard de Bank Marketing: informe del desarrollo" href="../portada.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../portada.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Entregable 2 · Bank Marketing</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../portada.html">
+                    Entregable 2 · Dashboard de Bank Marketing: informe del desarrollo
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte I · El dashboard y la interpretación de sus resultados</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pestaña 1 · Contexto del problema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_eda.html">Pestaña 2 · EDA (exploración de datos)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_modelos.html">Pestaña 3 · Modelos base</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II · Desarrollo completo, con lo que el dashboard no muestra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../desarrollo/00_mapa-del-desarrollo.html">Qué no muestra el dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desarrollo/00_introduccion.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desarrollo/01_base-de-datos.html">1. Base de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desarrollo/02_reserva-de-la-prueba.html">2. Reserva del conjunto de prueba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desarrollo/03_analisis-exploratorio.html">3. Análisis exploratorio de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desarrollo/04_modelo-base.html">4. Modelo base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desarrollo/05_conclusiones-y-limitaciones.html">5. Conclusiones y limitaciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desarrollo/06_referencias.html">6. Referencias</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/dashboard/01_contexto.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pestaña 1 · Contexto del problema</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tarjetas-de-la-cabecera-tamano-de-la-base-y-depuracion">1.1 Tarjetas de la cabecera: tamaño de la base y depuración</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-de-las-llamadas">1.2 Resultado de las llamadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasa-de-suscripcion-observada-y-de-referencia">1.3 Tasa de suscripción: observada y de referencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contactos-en-entrenamiento-y-prueba">1.4 Contactos en entrenamiento y prueba</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contactos-y-tasa-de-suscripcion-por-mes">1.5 Contactos y tasa de suscripción por mes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selector-de-ano">1.6 Selector de año</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#donde-ampliar-lo-que-el-dashboard-no-muestra">Dónde ampliar lo que el dashboard no muestra</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pestana-1-contexto-del-problema">
+<h1>Pestaña 1 · Contexto del problema<a class="headerlink" href="#pestana-1-contexto-del-problema" title="Link to this heading">#</a></h1>
+<p>La primera pestaña del dashboard responde tres preguntas: qué datos hay, qué pasó después de las llamadas y cómo se reparten esos datos entre entrenamiento y prueba. Este capítulo recorre, en el mismo orden en que aparecen en la pestaña, cada resultado que se muestra, lo reproduce con el código del propio dashboard y lo interpreta. Las cifras se calculan en la ejecución del cuaderno, de modo que coinciden con las del dashboard cuando el selector de año está en «Todos».</p>
+<p>Cada interpretación sigue el mismo orden: primero lo que muestra el resultado, luego lo que significa para el problema y al final la decisión que se toma a partir de ello.</p>
+<p><img alt="Vista de la pestaña 1 del dashboard" src="../_images/pestana_1_contexto.png" /></p>
+<p>La pestaña contiene seis resultados, que se interpretan en este orden:</p>
+<ol class="arabic simple">
+<li><p>Las tarjetas de la cabecera: tamaño de la base y depuración.</p></li>
+<li><p>El resultado de las llamadas.</p></li>
+<li><p>La tasa de suscripción observada frente a la de referencia.</p></li>
+<li><p>Los contactos en entrenamiento y prueba.</p></li>
+<li><p>Los contactos y la tasa de suscripción por mes.</p></li>
+<li><p>El selector de año.</p></li>
+</ol>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"libro_herramientas"</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">informe_dashboard</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">original</span><span class="p">,</span> <span class="n">clean</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">cargar</span><span class="p">()</span>                       <span class="c1"># mismo ajuste que hace el dashboard al arrancar</span>
+<span class="n">tr</span><span class="p">,</span> <span class="n">te</span><span class="p">,</span> <span class="n">y_tr</span><span class="p">,</span> <span class="n">y_te</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="s2">"train"</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="s2">"test"</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="s2">"y_train"</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="s2">"y_test"</span><span class="p">]</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="n">clean</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">suscribe</span><span class="o">=</span><span class="n">clean</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">"yes"</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+<span class="n">comp</span> <span class="o">=</span> <span class="n">componentes</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">make_context_tab</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">"all"</span><span class="p">))</span>     <span class="c1"># figuras y tarjetas tal como las arma el dashboard</span>
+<span class="n">n_original</span><span class="p">,</span> <span class="n">n_limpio</span><span class="p">,</span> <span class="n">n_dup</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">original</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">clean</span><span class="p">),</span> <span class="n">r</span><span class="p">[</span><span class="s2">"duplicate_count"</span><span class="p">]</span>
+<span class="n">n_si</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">datos</span><span class="p">[</span><span class="s2">"suscribe"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="n">tasa</span> <span class="o">=</span> <span class="n">n_si</span> <span class="o">/</span> <span class="n">n_limpio</span>
+<span class="n">por_anio</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"year"</span><span class="p">)[</span><span class="s2">"suscribe"</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">contactos</span><span class="o">=</span><span class="s2">"size"</span><span class="p">,</span> <span class="n">suscriben</span><span class="o">=</span><span class="s2">"sum"</span><span class="p">,</span> <span class="n">tasa</span><span class="o">=</span><span class="s2">"mean"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="tarjetas-de-la-cabecera-tamano-de-la-base-y-depuracion">
+<h2>1.1 Tarjetas de la cabecera: tamaño de la base y depuración<a class="headerlink" href="#tarjetas-de-la-cabecera-tamano-de-la-base-y-depuracion" title="Link to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_c3d1f th {
+  padding: 4px 14px;
+}
+#T_c3d1f  td {
+  padding: 4px 14px;
+}
+</style>
+<table id="T_c3d1f">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_c3d1f_level0_col0" class="col_heading level0 col0" >Valor</th>
+      <th id="T_c3d1f_level0_col1" class="col_heading level0 col1" >Nota</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_c3d1f_level0_row0" class="row_heading level0 row0" >Clientes contactados</th>
+      <td id="T_c3d1f_row0_col0" class="data row0 col0" >41.176</td>
+      <td id="T_c3d1f_row0_col1" class="data row0 col1" >Todos los años</td>
+    </tr>
+    <tr>
+      <th id="T_c3d1f_level0_row1" class="row_heading level0 row1" >Sí contrataron</th>
+      <td id="T_c3d1f_row1_col0" class="data row1 col0" >4.639</td>
+      <td id="T_c3d1f_row1_col1" class="data row1 col1" >11,3 % de los contactados</td>
+    </tr>
+    <tr>
+      <th id="T_c3d1f_level0_row2" class="row_heading level0 row2" >No contrataron</th>
+      <td id="T_c3d1f_row2_col0" class="data row2 col0" >36.537</td>
+      <td id="T_c3d1f_row2_col1" class="data row2 col1" >88,7 % de los contactados</td>
+    </tr>
+    <tr>
+      <th id="T_c3d1f_level0_row3" class="row_heading level0 row3" >Duplicados retirados</th>
+      <td id="T_c3d1f_row3_col0" class="data row3 col0" >12</td>
+      <td id="T_c3d1f_row3_col1" class="data row3 col1" >De la base original</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<p><strong>Interpretación.</strong> El archivo trae 41.188 registros. Tras retirar 12 duplicados exactos (0,03 % de las filas) quedan 41.176 clientes contactados: 4.639 contrataron el depósito (11,3 %) y 36.537 no lo hicieron (88,7 %).</p>
+<p>Así mismo, un duplicado exacto no aporta información nueva y, si se conservara, la misma fila podría quedar a la vez en entrenamiento y en prueba, lo que inflaría la evaluación del modelo. La cantidad retirada es pequeña, de modo que la depuración no cambia la composición de la base.</p>
+<p>Por tal motivo, se eliminan los duplicados antes de partir los datos y todas las cifras del dashboard se calculan sobre los clientes depurados.</p>
+</div>
+</div>
+</section>
+<section id="resultado-de-las-llamadas">
+<h2>1.2 Resultado de las llamadas<a class="headerlink" href="#resultado-de-las-llamadas" title="Link to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="height:300px; width:100%;">                        <script>window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-4.1.1.min.js" integrity="sha256-O24V1F27f8pb0glCkelh3cVHLNiHAJ5gCaVtq2aNch8=" crossorigin="anonymous"></script>                <div id="7e002a44-1b84-4eb7-b760-9e14c0b7cada" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("7e002a44-1b84-4eb7-b760-9e14c0b7cada")) {                    Plotly.newPlot(                        "7e002a44-1b84-4eb7-b760-9e14c0b7cada",                        [{"customdata":{"dtype":"f8","bdata":"V6zVKBFl7D8=","shape":"1, 1"},"hovertemplate":"%{y}\u003cbr\u003eContactos: %{x:,}\u003cbr\u003eProporci\u00f3n: %{customdata[0]:.1%}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"No contrat\u00f3","marker":{"color":"#aab6c8","pattern":{"shape":""}},"name":"No contrat\u00f3","orientation":"h","showlegend":true,"text":["36.537 \u00b7 88,7 %"],"textposition":"outside","x":{"dtype":"i4","bdata":"uY4AAA=="},"xaxis":"x","y":["No contrat\u00f3"],"yaxis":"y","type":"bar"},{"customdata":{"dtype":"f8","bdata":"RZ1SuXbXvD8=","shape":"1, 1"},"hovertemplate":"%{y}\u003cbr\u003eContactos: %{x:,}\u003cbr\u003eProporci\u00f3n: %{customdata[0]:.1%}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"S\u00ed contrat\u00f3","marker":{"color":"#0fba91","pattern":{"shape":""}},"name":"S\u00ed contrat\u00f3","orientation":"h","showlegend":true,"text":["4.639 \u00b7 11,3 %"],"textposition":"outside","x":{"dtype":"i2","bdata":"HxI="},"xaxis":"x","y":["S\u00ed contrat\u00f3"],"yaxis":"y","type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Contactos"},"range":[0,52705.28],"tickfont":{"color":"#72809b"},"showgrid":true,"gridcolor":"#edf0f7","zeroline":false,"linecolor":"#dce2ee"},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":""},"categoryorder":"array","categoryarray":["S\u00ed contrat\u00f3","No contrat\u00f3"],"tickfont":{"color":"#72809b"},"showgrid":true,"gridcolor":"#edf0f7","zeroline":false,"linecolor":"#dce2ee"},"legend":{"title":{"text":""},"tracegroupgap":0},"title":{"text":"Resultado de las llamadas \u00b7 Todos los a\u00f1os","font":{"size":16,"color":"#172554"},"x":0.03,"xanchor":"left"},"barmode":"relative","showlegend":false,"font":{"family":"Segoe UI, Arial, sans-serif","color":"#172554","size":12},"hoverlabel":{"font":{"color":"#ffffff"},"bgcolor":"#172554"},"margin":{"l":48,"r":28,"t":64,"b":48},"paper_bgcolor":"rgba(255,255,255,0)","plot_bgcolor":"rgba(255,255,255,0)","height":300},                        {"displayModeBar": false, "responsive": true}                    )                };            </script>        </div></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<p><strong>Interpretación.</strong> De los 41.176 contactos, 36.537 terminaron en «No contrató» (88,7 %) y 4.639 en «Sí contrató» (11,3 %): hay 7,9 clientes que no contratan por cada uno que sí lo hace.</p>
+<p>Esto significa que el problema está desbalanceado: una regla que respondiera siempre «No» acertaría el 88,7 % de las veces sin identificar a un solo suscriptor, de modo que la exactitud (<em>accuracy</em>) por sí sola no permite distinguir un modelo útil de uno trivial.</p>
+<p>Por ello, se evalúa con AUC, AUC-PR, recall y F1, que sí reflejan si el modelo encuentra a los suscriptores (resultados en la pestaña 3), y se compara siempre contra la regla simple de responder «No».</p>
+</div>
+</div>
+</section>
+<section id="tasa-de-suscripcion-observada-y-de-referencia">
+<h2>1.3 Tasa de suscripción: observada y de referencia<a class="headerlink" href="#tasa-de-suscripcion-observada-y-de-referencia" title="Link to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="height:260px; width:100%;">                            <div id="2382a2c7-25dc-4dc5-8821-9af09279b38d" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("2382a2c7-25dc-4dc5-8821-9af09279b38d")) {                    Plotly.newPlot(                        "2382a2c7-25dc-4dc5-8821-9af09279b38d",                        [{"hovertemplate":"%{y}\u003cbr\u003eTasa: %{x:.1%}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":["#0fba91","#4f46e5"]},"orientation":"h","text":["11,3 %","6,4 %"],"textposition":"outside","x":[0.11266271614532737,0.06375227686703097],"y":["Observada en los datos","Referencia: entrenamiento"],"type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"range":[0,0.1633609384107247],"tickformat":".0%","title":{"text":"Proporci\u00f3n de contactos"},"tickfont":{"color":"#72809b"},"showgrid":true,"gridcolor":"#edf0f7","zeroline":false,"linecolor":"#dce2ee"},"yaxis":{"autorange":"reversed","showgrid":true,"tickfont":{"color":"#72809b"},"gridcolor":"#edf0f7","zeroline":false,"linecolor":"#dce2ee"},"title":{"text":"Tasa de suscripci\u00f3n: observada y de referencia","font":{"size":16,"color":"#172554"},"x":0.03,"xanchor":"left"},"showlegend":false,"height":260,"font":{"family":"Segoe UI, Arial, sans-serif","color":"#172554","size":12},"hoverlabel":{"font":{"color":"#ffffff"},"bgcolor":"#172554"},"margin":{"l":48,"r":28,"t":64,"b":48},"paper_bgcolor":"rgba(255,255,255,0)","plot_bgcolor":"rgba(255,255,255,0)"},                        {"displayModeBar": false, "responsive": true}                    )                };            </script>        </div></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<p><strong>Interpretación.</strong> La tasa observada en todos los datos es 11,3 % y la de referencia, que es la del conjunto de entrenamiento, es 6,4 %: una diferencia de 4,9 puntos porcentuales. Aplicada a los 41.176 contactos, la referencia equivale a unas 2.626 suscripciones frente a las 4.639 observadas.</p>
+<p>Lo anterior indica que el entrenamiento recoge un periodo de baja suscripción: por año, la tasa pasa de 4,8 % en 2008 a 19,5 % en 2009 y a 52,1 % en 2010. La referencia es, entonces, un punto de comparación retrospectivo, no una meta de campaña ni una estimación de lo que ocurrirá después.</p>
+<p>Por tal motivo, se opta por leer esta comparación solo como evidencia de que la tasa cambia con el tiempo y por evaluar el modelo en un periodo posterior al de entrenamiento (sección 2 del cuaderno).</p>
+</div>
+</div>
+</section>
+<section id="contactos-en-entrenamiento-y-prueba">
+<h2>1.4 Contactos en entrenamiento y prueba<a class="headerlink" href="#contactos-en-entrenamiento-y-prueba" title="Link to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="height:330px; width:100%;">                            <div id="da8cc4bf-4543-49cf-a2c9-dee2af313c72" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("da8cc4bf-4543-49cf-a2c9-dee2af313c72")) {                    Plotly.newPlot(                        "da8cc4bf-4543-49cf-a2c9-dee2af313c72",                        [{"hovertemplate":"Conjunto=%{x}\u003cbr\u003eRegistros=%{text}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Entrenamiento","marker":{"color":"#4f46e5","pattern":{"shape":""}},"name":"Entrenamiento","orientation":"v","showlegend":true,"text":{"dtype":"f8","bdata":"AAAAAIAV4EA="},"textposition":"outside","x":["Entrenamiento"],"xaxis":"x","y":{"dtype":"i4","bdata":"rIAAAA=="},"yaxis":"y","type":"bar"},{"hovertemplate":"Conjunto=%{x}\u003cbr\u003eRegistros=%{text}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Prueba","marker":{"color":"#f9735b","pattern":{"shape":""}},"name":"Prueba","orientation":"v","showlegend":true,"text":{"dtype":"f8","bdata":"AAAAAAAWwEA="},"textposition":"outside","x":["Prueba"],"xaxis":"x","y":{"dtype":"i2","bdata":"LCA="},"yaxis":"y","type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":""},"categoryorder":"array","categoryarray":["Entrenamiento","Prueba"],"tickfont":{"color":"#72809b"},"showgrid":true,"gridcolor":"#edf0f7","zeroline":false,"linecolor":"#dce2ee"},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Registros"},"tickfont":{"color":"#72809b"},"showgrid":true,"gridcolor":"#edf0f7","zeroline":false,"linecolor":"#dce2ee"},"legend":{"title":{"text":"Conjunto"},"tracegroupgap":0},"title":{"text":"Contactos del a\u00f1o en entrenamiento y prueba \u00b7 Todos los a\u00f1os","font":{"size":16,"color":"#172554"},"x":0.03,"xanchor":"left"},"barmode":"relative","showlegend":false,"font":{"family":"Segoe UI, Arial, sans-serif","color":"#172554","size":12},"hoverlabel":{"font":{"color":"#ffffff"},"bgcolor":"#172554"},"margin":{"l":48,"r":28,"t":64,"b":48},"paper_bgcolor":"rgba(255,255,255,0)","plot_bgcolor":"rgba(255,255,255,0)","height":330},                        {"displayModeBar": false, "responsive": true}                    )                };            </script>        </div></div><div class="output text_html"><style type="text/css">
+#T_ed074 th {
+  padding: 4px 14px;
+}
+#T_ed074  td {
+  padding: 4px 14px;
+}
+</style>
+<table id="T_ed074">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_ed074_level0_col0" class="col_heading level0 col0" >Registros</th>
+      <th id="T_ed074_level0_col1" class="col_heading level0 col1" >Suscriben</th>
+      <th id="T_ed074_level0_col2" class="col_heading level0 col2" >Prevalencia</th>
+      <th id="T_ed074_level0_col3" class="col_heading level0 col3" >Desde</th>
+      <th id="T_ed074_level0_col4" class="col_heading level0 col4" >Hasta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_ed074_level0_row0" class="row_heading level0 row0" >Entrenamiento</th>
+      <td id="T_ed074_row0_col0" class="data row0 col0" >32.940</td>
+      <td id="T_ed074_row0_col1" class="data row0 col1" >2.100</td>
+      <td id="T_ed074_row0_col2" class="data row0 col2" >6,4 %</td>
+      <td id="T_ed074_row0_col3" class="data row0 col3" >2008-05</td>
+      <td id="T_ed074_row0_col4" class="data row0 col4" >2009-05</td>
+    </tr>
+    <tr>
+      <th id="T_ed074_level0_row1" class="row_heading level0 row1" >Prueba</th>
+      <td id="T_ed074_row1_col0" class="data row1 col0" >8.236</td>
+      <td id="T_ed074_row1_col1" class="data row1 col1" >2.539</td>
+      <td id="T_ed074_row1_col2" class="data row1 col2" >30,8 %</td>
+      <td id="T_ed074_row1_col3" class="data row1 col3" >2009-05</td>
+      <td id="T_ed074_row1_col4" class="data row1 col4" >2010-11</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<p><strong>Interpretación.</strong> El entrenamiento reúne 32.940 contactos (80,0 %), de 2008-05 a 2009-05, con una prevalencia de 6,4 %; la prueba reúne 8.236 contactos, de 2009-05 a 2010-11, con 30,8 %. La prevalencia se multiplica por 4,8 de un conjunto al otro.</p>
+<p>Entonces, el modelo aprende en un periodo de baja suscripción y se evalúa en otro de suscripción alta y contexto económico distinto. El corte se hace por orden cronológico, sin barajar, porque las filas del archivo están ordenadas en el tiempo, y cae dentro de 2009-05, el único mes presente en ambos conjuntos.</p>
+<p>En consecuencia, se decide leer el desempeño de la pestaña 3 como el de un modelo que debe generalizar a otro periodo y no como el de uno evaluado en condiciones estables; por eso la prueba permanece fija aunque se cambie el año en el selector.</p>
+</div>
+</div>
+</section>
+<section id="contactos-y-tasa-de-suscripcion-por-mes">
+<h2>1.5 Contactos y tasa de suscripción por mes<a class="headerlink" href="#contactos-y-tasa-de-suscripcion-por-mes" title="Link to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="height:380px; width:100%;">                            <div id="bae7e1b2-5b2d-48bf-9acc-ff826d0d549e" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("bae7e1b2-5b2d-48bf-9acc-ff826d0d549e")) {                    Plotly.newPlot(                        "bae7e1b2-5b2d-48bf-9acc-ff826d0d549e",                        [{"hovertemplate":"%{x}\u003cbr\u003eContactos: %{y:,}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#d9e5f2"},"name":"Contactos","x":["2008-05","2008-06","2008-07","2008-08","2008-10","2008-11","2008-12","2009-03","2009-04","2009-05","2009-06","2009-07","2009-08","2009-09","2009-10","2009-11","2009-12","2010-03","2010-04","2010-05","2010-06","2010-07","2010-08","2010-09","2010-10","2010-11"],"y":{"dtype":"i2","bdata":"Uh4WERkaNRRDAB8OCgAaAZkJoRbLArEAAgMLAb4BZQGsAAgBrgDUAOUANwHpAC8BzACAAA=="},"yaxis":"y","type":"bar"},{"hovertemplate":"%{x}\u003cbr\u003eTasa: %{y:.1%}\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#f9735b","width":3},"mode":"lines+markers","name":"Tasa de suscripci\u00f3n","x":["2008-05","2008-06","2008-07","2008-08","2008-10","2008-11","2008-12","2009-03","2009-04","2009-05","2009-06","2009-07","2009-08","2009-09","2009-10","2009-11","2009-12","2010-03","2010-04","2010-05","2010-06","2010-07","2010-08","2010-09","2010-10","2010-11"],"y":{"dtype":"f8","bdata":"H0xOFXWpnz\u002fuDbuGowGmPzlzaUDHMK8\u002fj\u002fXmUYXSqj9c+NWYSA\u002fkPxv86Br86Ko\u002fmpmZmZmZuT9yBTG5gpjcP2xwscHFBsc\u002f2z97O\u002f4ntz8YeqEXeqHXPzf6QyG5gNc\u002fFl\u002fxFV\u002fx1T+XCaJlgmjZP6PONG5g1Nk\u002fHh4eHh4e3j8Y9AV9QV\u002fgPy+66KKLLuI\u002f4Gwd+s3W4T8Yb2WfQ2riP2KIDvdn590\u002fE98Xtfwb4j9y2INIDnvgP5h0ah7krt8\u002fLS0tLS0t3T8AAAAAAADdPw=="},"yaxis":"y2","type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"yaxis":{"title":{"text":"Contactos"},"showgrid":true,"tickfont":{"color":"#72809b"},"gridcolor":"#edf0f7","zeroline":false,"linecolor":"#dce2ee"},"yaxis2":{"title":{"text":"Tasa de suscripci\u00f3n"},"overlaying":"y","side":"right","tickformat":".0%","showgrid":true,"tickfont":{"color":"#72809b"},"gridcolor":"#edf0f7","zeroline":false,"linecolor":"#dce2ee"},"legend":{"orientation":"h","y":1.12},"margin":{"t":64,"l":48,"r":28,"b":48},"title":{"text":"Contactos y tasa de suscripci\u00f3n por mes \u00b7 Todos los a\u00f1os","font":{"size":16,"color":"#172554"},"x":0.03,"xanchor":"left"},"xaxis":{"title":{"text":"Periodo (a\u00f1o-mes)"},"tickfont":{"color":"#72809b"},"showgrid":true,"gridcolor":"#edf0f7","zeroline":false,"linecolor":"#dce2ee"},"font":{"family":"Segoe UI, Arial, sans-serif","color":"#172554","size":12},"hoverlabel":{"font":{"color":"#ffffff"},"bgcolor":"#172554"},"paper_bgcolor":"rgba(255,255,255,0)","plot_bgcolor":"rgba(255,255,255,0)","height":380},                        {"displayModeBar": false, "responsive": true}                    )                };            </script>        </div></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<p><strong>Interpretación.</strong> La base cubre 26 periodos año-mes. Los cinco con más contactos (2008-05, 2008-06, 2008-07, 2008-08 y 2009-05) concentran el 72,3 % de los registros y su tasa de suscripción va de 3,1 % a 9,0 %; en cambio, 13 periodos tienen menos de 300 contactos y suscribe el 48,6 % de sus clientes. La correlación de Spearman entre el volumen y la tasa por periodo es -0,67.</p>
+<p>Esto significa que las campañas masivas rinden poco y las pequeñas rinden mucho, pero con estos datos no se puede separar si la diferencia viene de a quién se llamó o del momento económico en que se llamó. Además, cada periodo tiene su propia tasa base, así que el mes funciona como una marca del periodo y no solo como estacionalidad: mayo tuvo 3,1 % en 2008, 9,0 % en 2009 y 57,5 % en 2010.</p>
+<p>Por lo anterior, conviene no mezclar los periodos al azar al validar el modelo y mantener <code class="docutils literal notranslate"><span class="pre">month</span></code> en observación, porque puede identificar el periodo sin aportar información de uso real (secciones 3.6 y 4.9 del cuaderno).</p>
+</div>
+</div>
+</section>
+<section id="selector-de-ano">
+<h2>1.6 Selector de año<a class="headerlink" href="#selector-de-ano" title="Link to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_108e7 th {
+  padding: 4px 14px;
+}
+#T_108e7  td {
+  padding: 4px 14px;
+}
+</style>
+<table id="T_108e7">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_108e7_level0_col0" class="col_heading level0 col0" >Contactos</th>
+      <th id="T_108e7_level0_col1" class="col_heading level0 col1" >Participación</th>
+      <th id="T_108e7_level0_col2" class="col_heading level0 col2" >Suscriben</th>
+      <th id="T_108e7_level0_col3" class="col_heading level0 col3" >Tasa</th>
+      <th id="T_108e7_level0_col4" class="col_heading level0 col4" >Periodos</th>
+      <th id="T_108e7_level0_col5" class="col_heading level0 col5" >En entrenamiento</th>
+      <th id="T_108e7_level0_col6" class="col_heading level0 col6" >En prueba</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_108e7_level0_row0" class="row_heading level0 row0" >2008</th>
+      <td id="T_108e7_row0_col0" class="data row0 col0" >27.682</td>
+      <td id="T_108e7_row0_col1" class="data row0 col1" >67,2 %</td>
+      <td id="T_108e7_row0_col2" class="data row0 col2" >1.339</td>
+      <td id="T_108e7_row0_col3" class="data row0 col3" >4,8 %</td>
+      <td id="T_108e7_row0_col4" class="data row0 col4" >2008-05 a 2008-12</td>
+      <td id="T_108e7_row0_col5" class="data row0 col5" >27.682</td>
+      <td id="T_108e7_row0_col6" class="data row0 col6" >0</td>
+    </tr>
+    <tr>
+      <th id="T_108e7_level0_row1" class="row_heading level0 row1" >2009</th>
+      <td id="T_108e7_row1_col0" class="data row1 col0" >11.436</td>
+      <td id="T_108e7_row1_col1" class="data row1 col1" >27,8 %</td>
+      <td id="T_108e7_row1_col2" class="data row1 col2" >2.227</td>
+      <td id="T_108e7_row1_col3" class="data row1 col3" >19,5 %</td>
+      <td id="T_108e7_row1_col4" class="data row1 col4" >2009-03 a 2009-12</td>
+      <td id="T_108e7_row1_col5" class="data row1 col5" >5.258</td>
+      <td id="T_108e7_row1_col6" class="data row1 col6" >6.178</td>
+    </tr>
+    <tr>
+      <th id="T_108e7_level0_row2" class="row_heading level0 row2" >2010</th>
+      <td id="T_108e7_row2_col0" class="data row2 col0" >2.058</td>
+      <td id="T_108e7_row2_col1" class="data row2 col1" >5,0 %</td>
+      <td id="T_108e7_row2_col2" class="data row2 col2" >1.073</td>
+      <td id="T_108e7_row2_col3" class="data row2 col3" >52,1 %</td>
+      <td id="T_108e7_row2_col4" class="data row2 col4" >2010-03 a 2010-11</td>
+      <td id="T_108e7_row2_col5" class="data row2 col5" >0</td>
+      <td id="T_108e7_row2_col6" class="data row2 col6" >2.058</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<p><strong>Interpretación.</strong> El selector filtra las tarjetas y los gráficos de las pestañas 1 y 2. En 2008 hay 27.682 contactos (67,2 % de la base) con una tasa de 4,8 %; en 2009, 11.436 con 19,5 %; y en 2010, 2.058 con 52,1 %. Los tres años no pesan lo mismo y los periodos que cubre cada uno tampoco.</p>
+<p>Así mismo, las diferencias entre años mezclan dos efectos, a quién se llamó y el contexto del periodo, de modo que una tasa más alta en un año no se puede atribuir a un tipo de cliente en particular. Además, los años no coinciden con los conjuntos: 2009 está repartido entre entrenamiento y prueba.</p>
+<p>Por tal motivo, se usa el selector para describir cada año y no para evaluar el modelo; la pestaña 3 no responde a él porque la prueba temporal debe permanecer fija.</p>
+</div>
+</div>
+</section>
+<section id="donde-ampliar-lo-que-el-dashboard-no-muestra">
+<h2>Dónde ampliar lo que el dashboard no muestra<a class="headerlink" href="#donde-ampliar-lo-que-el-dashboard-no-muestra" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Detalle</p></th>
+<th class="head"><p>Dónde se desarrolla</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Problema de investigación, justificación, fuente, licencia y diccionario de variables</p></td>
+<td><p><a class="reference internal" href="../desarrollo/01_base-de-datos.html"><span class="doc">sección 1 del cuaderno</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Calidad de los datos: faltantes, duplicados, valores imposibles, atípicos, sesgos de muestreo y ética</p></td>
+<td><p><a class="reference internal" href="../desarrollo/01_base-de-datos.html"><span class="doc">sección 1.6 y 1.7</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Partición cronológica 80/20 y reserva del conjunto de prueba</p></td>
+<td><p><a class="reference internal" href="../desarrollo/02_reserva-de-la-prueba.html"><span class="doc">sección 2</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Variable objetivo, deriva temporal y validación aleatoria frente a temporal</p></td>
+<td><p><a class="reference internal" href="../desarrollo/03_analisis-exploratorio.html"><span class="doc">secciones 3.1 y 3.6</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "lmdonny"
+        },
+        kernelOptions: {
+            name: "lmdonny",
+            path: "./dashboard"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'lmdonny'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../portada.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Entregable 2 · Dashboard de Bank Marketing: informe del desarrollo</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_eda.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Pestaña 2 · EDA (exploración de datos)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tarjetas-de-la-cabecera-tamano-de-la-base-y-depuracion">1.1 Tarjetas de la cabecera: tamaño de la base y depuración</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-de-las-llamadas">1.2 Resultado de las llamadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasa-de-suscripcion-observada-y-de-referencia">1.3 Tasa de suscripción: observada y de referencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contactos-en-entrenamiento-y-prueba">1.4 Contactos en entrenamiento y prueba</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contactos-y-tasa-de-suscripcion-por-mes">1.5 Contactos y tasa de suscripción por mes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selector-de-ano">1.6 Selector de año</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#donde-ampliar-lo-que-el-dashboard-no-muestra">Dónde ampliar lo que el dashboard no muestra</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Donny Torres · Maestría en Analítica de Datos, Universidad del Norte
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

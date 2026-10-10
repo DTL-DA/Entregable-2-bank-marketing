@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Entregable 2 · Predicción de la suscripción a depósitos a término &#8212; Entregable 1 · Bank Marketing</title>
+    <title>Entregable 2 · Dashboard de Bank Marketing: informe del desarrollo &#8212; Entregable 2 · Bank Marketing</title>
   
   
   
@@ -67,7 +67,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="Introducción" href="capitulos/00_introduccion.html" />
+    <link rel="next" title="Pestaña 1 · Contexto del problema" href="dashboard/01_contexto.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   <meta name="docsearch:version" content="" />
@@ -197,7 +197,7 @@
   
   
   
-    <p class="title logo__title">Entregable 1 · Bank Marketing</p>
+    <p class="title logo__title">Entregable 2 · Bank Marketing</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -213,18 +213,26 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Entregable 1 · Predicción de la suscripción a depósitos a término
+                    Entregable 2 · Dashboard de Bank Marketing: informe del desarrollo
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="capitulos/00_introduccion.html">Introducción</a></li>
-<li class="toctree-l1"><a class="reference internal" href="capitulos/01_1-base-de-datos.html">1. Base de datos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="capitulos/02_2-reserva-del-conjunto-de-prueba.html">2. Reserva del conjunto de prueba</a></li>
-<li class="toctree-l1"><a class="reference internal" href="capitulos/03_3-analisis-exploratorio-de-datos.html">3. Análisis exploratorio de datos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="capitulos/04_4-modelo-base.html">4. Modelo base</a></li>
-<li class="toctree-l1"><a class="reference internal" href="capitulos/05_5-conclusiones-y-limitaciones.html">5. Conclusiones y limitaciones</a></li>
-<li class="toctree-l1"><a class="reference internal" href="capitulos/06_6-referencias.html">6. Referencias</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte I · El dashboard y la interpretación de sus resultados</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="dashboard/01_contexto.html">Pestaña 1 · Contexto del problema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard/02_eda.html">Pestaña 2 · EDA (exploración de datos)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard/03_modelos.html">Pestaña 3 · Modelos base</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II · Desarrollo completo, con lo que el dashboard no muestra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="desarrollo/00_mapa-del-desarrollo.html">Qué no muestra el dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="desarrollo/00_introduccion.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="desarrollo/01_base-de-datos.html">1. Base de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="desarrollo/02_reserva-de-la-prueba.html">2. Reserva del conjunto de prueba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="desarrollo/03_analisis-exploratorio.html">3. Análisis exploratorio de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="desarrollo/04_modelo-base.html">4. Modelo base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="desarrollo/05_conclusiones-y-limitaciones.html">5. Conclusiones y limitaciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="desarrollo/06_referencias.html">6. Referencias</a></li>
 </ul>
 
     </div>
@@ -360,7 +368,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Entregable 1 · Predicción de la suscripción a depósitos a término</h1>
+    <h1>Entregable 2 · Dashboard de Bank Marketing: informe del desarrollo</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -371,6 +379,8 @@
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenido">Contenido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-leer-las-interpretaciones">Cómo leer las interpretaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibilidad">Reproducibilidad</a></li>
 </ul>
             </nav>
         </div>
@@ -382,30 +392,39 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="entregable-1-prediccion-de-la-suscripcion-a-depositos-a-termino">
-<h1>Entregable 1 · Predicción de la suscripción a depósitos a término<a class="headerlink" href="#entregable-1-prediccion-de-la-suscripcion-a-depositos-a-termino" title="Link to this heading">#</a></h1>
-<p><strong>Selección de la base de datos, análisis exploratorio e implementación del modelo base</strong></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="entregable-2-dashboard-de-bank-marketing-informe-del-desarrollo">
+<h1>Entregable 2 · Dashboard de Bank Marketing: informe del desarrollo<a class="headerlink" href="#entregable-2-dashboard-de-bank-marketing-informe-del-desarrollo" title="Link to this heading">#</a></h1>
+<p><strong>Dashboard en Dash Plotly con tres pestañas e informe que interpreta cada uno de sus resultados</strong></p>
 <ul class="simple">
 <li><p><strong>Autor:</strong> Donny Torres</p></li>
 <li><p><strong>Programa:</strong> Maestría en Analítica de Datos, Universidad del Norte (Barranquilla)</p></li>
 <li><p><strong>Asignatura:</strong> Machine Learning</p></li>
 <li><p><strong>Fecha:</strong> octubre de 2026</p></li>
 <li><p><strong>Conjunto de datos:</strong> <em>Bank Marketing</em> con contexto social y económico (<code class="docutils literal notranslate"><span class="pre">bank-additional-full.csv</span></code>), UCI Machine Learning Repository: <a class="reference external" href="https://archive.ics.uci.edu/dataset/222/bank+marketing">https://archive.ics.uci.edu/dataset/222/bank+marketing</a> (licencia CC BY 4.0)</p></li>
+<li><p><strong>Dashboard:</strong> <a class="reference external" href="https://bank-marketing-dashboard-dtorres.onrender.com">https://bank-marketing-dashboard-dtorres.onrender.com</a> (el servicio gratuito se duerme tras 15 minutos sin visitas, así que la primera carga puede tardar cerca de dos minutos)</p></li>
 </ul>
 <section id="contenido">
 <h2>Contenido<a class="headerlink" href="#contenido" title="Link to this heading">#</a></h2>
-<p>El proyecto predice, con la información disponible antes de la llamada, si un cliente contactado en una campaña de telemercadeo de un banco portugués suscribirá un depósito a término. Sigue la ruta A del enunciado (clasificación) con partición y validación cronológicas, porque las filas están ordenadas en el tiempo: describe y audita la base de datos, reserva el último 20 % de los registros como prueba antes de cualquier decisión, desarrolla el análisis exploratorio uni, bi y multivariado con la auditoría de fuga (incluida la fuga por <code class="docutils literal notranslate"><span class="pre">duration</span></code> y la fuga temporal por el orden cronológico de las filas) y compara una regresión logística dentro de un <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code> contra un <code class="docutils literal notranslate"><span class="pre">DummyClassifier</span></code>, con validación temporal, intervalos de confianza <em>bootstrap</em> por bloques de día, calibración, curva de aprendizaje y el recorrido de la nota crítica del enunciado.</p>
-<p>Los capítulos siguientes corresponden a las secciones del cuaderno ejecutado:</p>
+<p>El dashboard presenta, en tres pestañas, el contexto del problema, la exploración de los datos y los modelos base para predecir si un cliente contactado en una campaña de telemercadeo de un banco portugués suscribirá un depósito a término. Este libro es el informe del desarrollo: interpreta cada resultado que aparece en el dashboard y reúne los detalles del análisis que el dashboard no muestra.</p>
+<p><strong>Parte I. El dashboard y la interpretación de sus resultados.</strong> Un capítulo por pestaña, con los resultados en el mismo orden en que aparecen y una interpretación de cada uno:</p>
 <ol class="arabic simple">
-<li><p><strong>Base de datos:</strong> problema, justificación, fuente y licencia, diccionario, estructura, calidad y consideraciones éticas.</p></li>
-<li><p><strong>Reserva del conjunto de prueba:</strong> partición cronológica 80/20 (primer 80 % de los registros en orden temporal para entrenamiento y último 20 % para prueba).</p></li>
-<li><p><strong>Análisis exploratorio de datos:</strong> variable objetivo, análisis uni, bi y multivariado, auditoría de fuga, orden temporal y preprocesamiento.</p></li>
-<li><p><strong>Modelo base:</strong> regresión logística frente a la línea base trivial.</p></li>
-<li><p><strong>Conclusiones y limitaciones.</strong></p></li>
-<li><p><strong>Referencias.</strong></p></li>
+<li><p><strong>Contexto del problema:</strong> tamaño y depuración de la base, resultado de las llamadas, tasa de referencia, reparto entre entrenamiento y prueba, serie mensual y selector de año.</p></li>
+<li><p><strong>EDA:</strong> tasa de suscripción por categoría, datos sin informar, distribución de las variables numéricas, serie mensual y fuga de información de <code class="docutils literal notranslate"><span class="pre">duration</span></code>.</p></li>
+<li><p><strong>Modelos base:</strong> tarjetas de desempeño, métricas de los tres modelos, curva ROC, matrices de confusión, punto operativo y configuración del modelo.</p></li>
 </ol>
-<p>La entrega incluye la base de datos (<code class="docutils literal notranslate"><span class="pre">data/bank-additional-full.csv</span></code>), el archivo de dependencias (<code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>) y el cuaderno <code class="docutils literal notranslate"><span class="pre">Entregable</span> <span class="pre">1</span> <span class="pre">-</span> <span class="pre">Bank</span> <span class="pre">Marketing.ipynb</span></code>, que se ejecuta de principio a fin; los procedimientos aleatorios usan la semilla <code class="docutils literal notranslate"><span class="pre">SEED</span> <span class="pre">=</span> <span class="pre">42</span></code>.</p>
+<p><strong>Parte II. Desarrollo completo.</strong> Las secciones del cuaderno ejecutado (<code class="docutils literal notranslate"><span class="pre">Entregable</span> <span class="pre">2</span> <span class="pre">-</span> <span class="pre">Bank</span> <span class="pre">Marketing.ipynb</span></code>), con lo que el dashboard no muestra: diccionario de variables y calidad de los datos, reserva del conjunto de prueba, análisis uni, bi y multivariado, auditoría de fuga, preprocesamiento, búsqueda de hiperparámetros, intervalos de confianza, calibración, curva de aprendizaje, coeficientes, diagnóstico temporal, conclusiones y limitaciones. Un mapa al inicio de la parte indica dónde está cada detalle.</p>
 </section>
+<section id="como-leer-las-interpretaciones">
+<h2>Cómo leer las interpretaciones<a class="headerlink" href="#como-leer-las-interpretaciones" title="Link to this heading">#</a></h2>
+<p>Cada interpretación tiene tres párrafos y sigue el mismo orden: primero lo que muestra el resultado, con las cifras reales; luego lo que significa para el problema o para el modelo; y al final la decisión que se toma a partir de ello. Las cifras se calculan en la misma ejecución que genera el texto, de modo que coinciden con las salidas.</p>
+<p>Las pestañas 1 y 2 del dashboard responden al selector de año; la pestaña 3 no, porque la prueba temporal debe permanecer fija. En este libro todas las cifras corresponden a la opción «Todos» del selector, salvo donde se indique un año.</p>
+</section>
+<section id="reproducibilidad">
+<h2>Reproducibilidad<a class="headerlink" href="#reproducibilidad" title="Link to this heading">#</a></h2>
+<p>La partición entrenamiento-prueba es cronológica y, por tanto, determinista; los procedimientos aleatorios usan la semilla <code class="docutils literal notranslate"><span class="pre">SEED</span> <span class="pre">=</span> <span class="pre">42</span></code>. El dashboard y los capítulos de la Parte I usan el mismo módulo de código (<code class="docutils literal notranslate"><span class="pre">src/dashboard_bank_marketing.py</span></code>), y los capítulos de la Parte II son el cuaderno ejecutado, dividido por secciones.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -441,11 +460,11 @@
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="capitulos/00_introduccion.html"
+       href="dashboard/01_contexto.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Introducción</p>
+        <p class="prev-next-title">Pestaña 1 · Contexto del problema</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -468,6 +487,8 @@
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenido">Contenido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-leer-las-interpretaciones">Cómo leer las interpretaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibilidad">Reproducibilidad</a></li>
 </ul>
   </nav></div>
 
