@@ -421,7 +421,8 @@
 </tbody>
 </table>
 </div>
-<p>Este cuaderno desarrolla el segundo entregable del proyecto de investigación en tres bloques: la descripción y la auditoría de calidad de la base de datos (sección 1), la reserva del conjunto de prueba (sección 2), el análisis exploratorio con la auditoría de fuga y el preprocesamiento (sección 3) y el modelo base frente a una línea base trivial (sección 4). Las conclusiones y las limitaciones están en la sección 5 y las referencias en la sección 6.</p>
+<p>Este cuaderno desarrolla el segundo entregable del proyecto de investigación en tres bloques: la descripción y la auditoría de calidad de la base de datos (sección 1), la reserva del conjunto de prueba (sección 2), el análisis exploratorio con la auditoría de fuga y el preprocesamiento (sección 3) y el modelo base frente a una línea base trivial y frente a modelos más flexibles (sección 4). Las conclusiones y las limitaciones están en la sección 5 y las referencias en la sección 6.</p>
+<p>Respecto del primer entregable, esta versión incorpora la retroalimentación recibida: el componente temporal completo (secciones 3.6.3 a 3.6.5); la elección de la regularización por pérdida logarítmica, la estabilidad de los coeficientes y la evaluación de las variables de calendario (secciones 4.1, 4.9.1 y 4.9.2); la recalibración mensual del intercepto ante el cambio de prevalencia (sección 4.7.1), y la comparación con modelos más flexibles en las mismas condiciones (sección 4.11).</p>
 <p>Todas las interpretaciones que acompañan a los gráficos y a las tablas se generan con los valores calculados en la misma ejecución, de forma que las cifras del texto coinciden siempre con las salidas. Cada interpretación sigue el mismo orden: primero lo que muestra el resultado, luego lo que significa para el modelo y al final la decisión que se toma a partir de ello.</p>
 <section id="configuracion-del-entorno-y-reproducibilidad">
 <h2>Configuración del entorno y reproducibilidad<a class="headerlink" href="#configuracion-del-entorno-y-reproducibilidad" title="Link to this heading">#</a></h2>
@@ -514,6 +515,11 @@
     <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">"**Interpretación.** </span><span class="si">{</span><span class="n">interpretacion</span><span class="si">}</span><span class="se">\n\n</span><span class="si">{</span><span class="n">implicacion</span><span class="si">}</span><span class="se">\n\n</span><span class="si">{</span><span class="n">accion</span><span class="si">}</span><span class="s2">"</span><span class="p">))</span>
 
 
+<span class="k">def</span><span class="w"> </span><span class="nf">conectar</span><span class="p">(</span><span class="n">conector</span><span class="p">,</span> <span class="n">texto</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Antepone un conector al texto y pasa a minúscula su primera letra."""</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">conector</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">texto</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}{</span><span class="n">texto</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="si">}</span><span class="s2">"</span> <span class="k">if</span> <span class="n">texto</span> <span class="k">else</span> <span class="n">texto</span>
+
+
 <span class="k">def</span><span class="w"> </span><span class="nf">tabla</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">indice</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="n">sty</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="n">dec</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s2">","</span><span class="p">,</span> <span class="n">thousands</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">na_rep</span><span class="o">=</span><span class="s2">"—"</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">indice</span><span class="p">:</span>
@@ -574,49 +580,49 @@
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_347df">
+<table id="T_fffc1">
   <thead>
     <tr>
-      <th id="T_347df_level0_col0" class="col_heading level0 col0" >Componente</th>
-      <th id="T_347df_level0_col1" class="col_heading level0 col1" >Versión</th>
+      <th id="T_fffc1_level0_col0" class="col_heading level0 col0" >Componente</th>
+      <th id="T_fffc1_level0_col1" class="col_heading level0 col1" >Versión</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_347df_row0_col0" class="data row0 col0" >Python</td>
-      <td id="T_347df_row0_col1" class="data row0 col1" >3.14.7</td>
+      <td id="T_fffc1_row0_col0" class="data row0 col0" >Python</td>
+      <td id="T_fffc1_row0_col1" class="data row0 col1" >3.14.7</td>
     </tr>
     <tr>
-      <td id="T_347df_row1_col0" class="data row1 col0" >numpy</td>
-      <td id="T_347df_row1_col1" class="data row1 col1" >2.5.3</td>
+      <td id="T_fffc1_row1_col0" class="data row1 col0" >numpy</td>
+      <td id="T_fffc1_row1_col1" class="data row1 col1" >2.5.3</td>
     </tr>
     <tr>
-      <td id="T_347df_row2_col0" class="data row2 col0" >pandas</td>
-      <td id="T_347df_row2_col1" class="data row2 col1" >3.0.6</td>
+      <td id="T_fffc1_row2_col0" class="data row2 col0" >pandas</td>
+      <td id="T_fffc1_row2_col1" class="data row2 col1" >3.0.6</td>
     </tr>
     <tr>
-      <td id="T_347df_row3_col0" class="data row3 col0" >scipy</td>
-      <td id="T_347df_row3_col1" class="data row3 col1" >1.18.1</td>
+      <td id="T_fffc1_row3_col0" class="data row3 col0" >scipy</td>
+      <td id="T_fffc1_row3_col1" class="data row3 col1" >1.18.1</td>
     </tr>
     <tr>
-      <td id="T_347df_row4_col0" class="data row4 col0" >scikit-learn</td>
-      <td id="T_347df_row4_col1" class="data row4 col1" >1.9.1</td>
+      <td id="T_fffc1_row4_col0" class="data row4 col0" >scikit-learn</td>
+      <td id="T_fffc1_row4_col1" class="data row4 col1" >1.9.1</td>
     </tr>
     <tr>
-      <td id="T_347df_row5_col0" class="data row5 col0" >statsmodels</td>
-      <td id="T_347df_row5_col1" class="data row5 col1" >0.15.0</td>
+      <td id="T_fffc1_row5_col0" class="data row5 col0" >statsmodels</td>
+      <td id="T_fffc1_row5_col1" class="data row5 col1" >0.15.0</td>
     </tr>
     <tr>
-      <td id="T_347df_row6_col0" class="data row6 col0" >matplotlib</td>
-      <td id="T_347df_row6_col1" class="data row6 col1" >3.11.2</td>
+      <td id="T_fffc1_row6_col0" class="data row6 col0" >matplotlib</td>
+      <td id="T_fffc1_row6_col1" class="data row6 col1" >3.11.2</td>
     </tr>
     <tr>
-      <td id="T_347df_row7_col0" class="data row7 col0" >jinja2</td>
-      <td id="T_347df_row7_col1" class="data row7 col1" >3.1.6</td>
+      <td id="T_fffc1_row7_col0" class="data row7 col0" >jinja2</td>
+      <td id="T_fffc1_row7_col1" class="data row7 col1" >3.1.6</td>
     </tr>
     <tr>
-      <td id="T_347df_row8_col0" class="data row8 col0" >IPython</td>
-      <td id="T_347df_row8_col1" class="data row8 col1" >9.17.1</td>
+      <td id="T_fffc1_row8_col0" class="data row8 col0" >IPython</td>
+      <td id="T_fffc1_row8_col1" class="data row8 col1" >9.17.1</td>
     </tr>
   </tbody>
 </table>

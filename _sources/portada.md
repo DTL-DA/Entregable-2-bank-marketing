@@ -17,9 +17,13 @@ El dashboard presenta, en tres pestañas, el contexto del problema, la exploraci
 
 1. **Contexto del problema:** tamaño y depuración de la base, resultado de las llamadas, tasa de referencia, reparto entre entrenamiento y prueba, serie mensual y selector de año.
 2. **EDA:** tasa de suscripción por categoría, datos sin informar, distribución de las variables numéricas, serie mensual y fuga de información de `duration`.
-3. **Modelos base:** tarjetas de desempeño, métricas de los tres modelos, curva ROC, matrices de confusión, punto operativo y configuración del modelo.
+3. **Modelos base:** tarjetas de desempeño, métricas de los cuatro modelos (con y sin recalibración), curva ROC, matrices de confusión, cambio de prevalencia por mes, punto operativo y configuración del modelo.
 
-**Parte II. Desarrollo completo.** Las secciones del cuaderno ejecutado (`Entregable 2 - Bank Marketing.ipynb`), con lo que el dashboard no muestra: diccionario de variables y calidad de los datos, reserva del conjunto de prueba, análisis uni, bi y multivariado, auditoría de fuga, preprocesamiento, búsqueda de hiperparámetros, intervalos de confianza, calibración, curva de aprendizaje, coeficientes, diagnóstico temporal, conclusiones y limitaciones. Un mapa al inicio de la parte indica dónde está cada detalle.
+**Parte II. Desarrollo completo.** Las secciones del cuaderno ejecutado (`Entregable 2 - Bank Marketing.ipynb`), con lo que el dashboard no muestra: diccionario de variables y calidad de los datos, reserva del conjunto de prueba, análisis uni, bi y multivariado, auditoría de fuga, componente temporal, preprocesamiento, búsqueda de hiperparámetros, intervalos de confianza, calibración y recalibración del intercepto, curva de aprendizaje, coeficientes y su estabilidad, diagnóstico temporal, comparación con modelos más flexibles, conclusiones y limitaciones. Un mapa al inicio de la parte indica dónde está cada detalle.
+
+## Cambios respecto del primer entregable
+
+Esta versión incorpora la retroalimentación del primer entregable. El componente temporal está completo (serie diaria, descomposición, estacionariedad, dependencia, cambios de régimen y deriva de concepto). La regularización se elige por pérdida logarítmica (`C = 0,01`), porque con `C = 100` los coeficientes eran inestables, y se mide su estabilidad. El cambio de prevalencia se corrige con una recalibración mensual del intercepto que usa solo los meses ya cerrados. Además, el modelo base se compara con modelos más flexibles en las mismas condiciones.
 
 ## Cómo leer las interpretaciones
 

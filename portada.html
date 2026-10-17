@@ -379,6 +379,7 @@
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenido">Contenido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cambios-respecto-del-primer-entregable">Cambios respecto del primer entregable</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-leer-las-interpretaciones">Cómo leer las interpretaciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibilidad">Reproducibilidad</a></li>
 </ul>
@@ -410,9 +411,13 @@
 <ol class="arabic simple">
 <li><p><strong>Contexto del problema:</strong> tamaño y depuración de la base, resultado de las llamadas, tasa de referencia, reparto entre entrenamiento y prueba, serie mensual y selector de año.</p></li>
 <li><p><strong>EDA:</strong> tasa de suscripción por categoría, datos sin informar, distribución de las variables numéricas, serie mensual y fuga de información de <code class="docutils literal notranslate"><span class="pre">duration</span></code>.</p></li>
-<li><p><strong>Modelos base:</strong> tarjetas de desempeño, métricas de los tres modelos, curva ROC, matrices de confusión, punto operativo y configuración del modelo.</p></li>
+<li><p><strong>Modelos base:</strong> tarjetas de desempeño, métricas de los cuatro modelos (con y sin recalibración), curva ROC, matrices de confusión, cambio de prevalencia por mes, punto operativo y configuración del modelo.</p></li>
 </ol>
-<p><strong>Parte II. Desarrollo completo.</strong> Las secciones del cuaderno ejecutado (<code class="docutils literal notranslate"><span class="pre">Entregable</span> <span class="pre">2</span> <span class="pre">-</span> <span class="pre">Bank</span> <span class="pre">Marketing.ipynb</span></code>), con lo que el dashboard no muestra: diccionario de variables y calidad de los datos, reserva del conjunto de prueba, análisis uni, bi y multivariado, auditoría de fuga, preprocesamiento, búsqueda de hiperparámetros, intervalos de confianza, calibración, curva de aprendizaje, coeficientes, diagnóstico temporal, conclusiones y limitaciones. Un mapa al inicio de la parte indica dónde está cada detalle.</p>
+<p><strong>Parte II. Desarrollo completo.</strong> Las secciones del cuaderno ejecutado (<code class="docutils literal notranslate"><span class="pre">Entregable</span> <span class="pre">2</span> <span class="pre">-</span> <span class="pre">Bank</span> <span class="pre">Marketing.ipynb</span></code>), con lo que el dashboard no muestra: diccionario de variables y calidad de los datos, reserva del conjunto de prueba, análisis uni, bi y multivariado, auditoría de fuga, componente temporal, preprocesamiento, búsqueda de hiperparámetros, intervalos de confianza, calibración y recalibración del intercepto, curva de aprendizaje, coeficientes y su estabilidad, diagnóstico temporal, comparación con modelos más flexibles, conclusiones y limitaciones. Un mapa al inicio de la parte indica dónde está cada detalle.</p>
+</section>
+<section id="cambios-respecto-del-primer-entregable">
+<h2>Cambios respecto del primer entregable<a class="headerlink" href="#cambios-respecto-del-primer-entregable" title="Link to this heading">#</a></h2>
+<p>Esta versión incorpora la retroalimentación del primer entregable. El componente temporal está completo (serie diaria, descomposición, estacionariedad, dependencia, cambios de régimen y deriva de concepto). La regularización se elige por pérdida logarítmica (<code class="docutils literal notranslate"><span class="pre">C</span> <span class="pre">=</span> <span class="pre">0,01</span></code>), porque con <code class="docutils literal notranslate"><span class="pre">C</span> <span class="pre">=</span> <span class="pre">100</span></code> los coeficientes eran inestables, y se mide su estabilidad. El cambio de prevalencia se corrige con una recalibración mensual del intercepto que usa solo los meses ya cerrados. Además, el modelo base se compara con modelos más flexibles en las mismas condiciones.</p>
 </section>
 <section id="como-leer-las-interpretaciones">
 <h2>Cómo leer las interpretaciones<a class="headerlink" href="#como-leer-las-interpretaciones" title="Link to this heading">#</a></h2>
@@ -487,6 +492,7 @@
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenido">Contenido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cambios-respecto-del-primer-entregable">Cambios respecto del primer entregable</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-leer-las-interpretaciones">Cómo leer las interpretaciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibilidad">Reproducibilidad</a></li>
 </ul>

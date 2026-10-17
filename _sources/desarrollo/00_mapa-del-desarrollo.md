@@ -12,13 +12,16 @@ El dashboard resume los resultados principales en tres pestañas. Esta parte del
 | Análisis univariado y bivariado, correlaciones, multicolinealidad y selección preliminar de variables | {doc}`secciones 3.2 y 3.3 <03_analisis-exploratorio>` |
 | Análisis multivariado: PCA, atípicos multivariados y estructura de grupos | {doc}`sección 3.4 <03_analisis-exploratorio>` |
 | Auditoría de fuga: disponibilidad de cada variable, desempeño univariado, efecto de `duration` y duplicados entre entrenamiento y prueba | {doc}`sección 3.5 <03_analisis-exploratorio>` |
-| Deriva temporal y validación aleatoria frente a validación temporal | {doc}`sección 3.6 <03_analisis-exploratorio>` |
+| Deriva de covariables y validación aleatoria frente a validación temporal | {doc}`secciones 3.6.1 y 3.6.2 <03_analisis-exploratorio>` |
+| Componente temporal: serie diaria, cambios de régimen, descomposición, estacionariedad, dependencia y deriva de concepto | {doc}`secciones 3.6.3 a 3.6.5 <03_analisis-exploratorio>` |
 | Preprocesamiento del modelo | {doc}`sección 3.7 <03_analisis-exploratorio>` |
-| Búsqueda de `C`, línea base trivial y elección del umbral con validación temporal | {doc}`secciones 4.1 a 4.3 <04_modelo-base>` |
+| Búsqueda de `C` por pérdida logarítmica, línea base trivial y elección del umbral con validación temporal | {doc}`secciones 4.1 a 4.3 <04_modelo-base>` |
 | Intervalos de confianza *bootstrap* por bloques de día | {doc}`sección 4.4 <04_modelo-base>` |
-| Curva precisión-recall, calibración y curva de aprendizaje | {doc}`secciones 4.6 a 4.8 <04_modelo-base>` |
-| Interpretación de los coeficientes (*odds ratios*) | {doc}`sección 4.9 <04_modelo-base>` |
+| Curva precisión-recall, calibración y recalibración mensual del intercepto | {doc}`secciones 4.6, 4.7 y 4.7.1 <04_modelo-base>` |
+| Curva de aprendizaje | {doc}`sección 4.8 <04_modelo-base>` |
+| Interpretación de los coeficientes (*odds ratios*), su estabilidad y las variables de calendario | {doc}`secciones 4.9, 4.9.1 y 4.9.2 <04_modelo-base>` |
 | Diagnóstico temporal: desempeño por año y residuos | {doc}`sección 4.10 <04_modelo-base>` |
-| Recorrido de la nota crítica del enunciado | {doc}`sección 4.11 <04_modelo-base>` |
+| Comparación con modelos más flexibles en las mismas condiciones | {doc}`sección 4.11 <04_modelo-base>` |
+| Recorrido de la nota crítica del enunciado | {doc}`sección 4.12 <04_modelo-base>` |
 | Conclusiones y limitaciones | {doc}`sección 5 <05_conclusiones-y-limitaciones>` |
 | Referencias | {doc}`sección 6 <06_referencias>` |
